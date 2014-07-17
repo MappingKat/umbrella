@@ -1,0 +1,284 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
+
+@import "../sass/bootstrap/bootstrap.scss";
+@import "../sass/fontawesome/scss/font-awesome.scss";
+// Default web variables
+
+$yellow: #f8e514;
+$alternate-cyan: #31d4e7;
+$alternate-red: #e73142;
+$alternate-purple: #5f5364;
+
+$grey: #282528;
+$light-grey: #bdbdbe;
+$dark-grey: #282528;
+
+// Mixins
+
+@mixin transition(){
+    -webkit-transition: all .15s ease;
+    -moz-transition: all .15s ease;
+    -ms-transition: all .15s ease;
+    -o-transition: all .15s ease;
+    transition: all .15s ease;
+
+}
+
+// Reset input placeholder
+
+::-webkit-input-placeholder {
+    color: $grey;
+    font-size: 22px;
+}
+::-moz-placeholder {
+    color: $grey;
+    font-size: 22px;
+}
+:-ms-input-placeholder {
+    color: $grey;
+    font-size: 22px;
+}
+input:-moz-placeholder {
+    color: $grey;
+    font-size: 22px;
+}
+
+// Reset MironC style
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+// Typo
+
+body {
+    font: 500 13px/1.5em 'Open Sans', sans-serif;
+    color: $grey;
+}
+
+a {
+    color: $grey;
+    &:hover {
+        color: $dark-grey;
+    }
+}
+
+
+h1 {
+    font-size: 42px;
+    font-weight: 400;
+}
+h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $dark-grey;
+}
+h3 {
+    font-size: 22px;
+    font-weight: 600;
+}
+h4 {
+    font-size: 18px;
+    line-height: 2em;
+    font-weight: 300;
+}
+h5 {
+    font-size: 16px;
+    font-weight: 700;
+}
+// Heading
+
+.special-heading {
+    padding: 60px 0;
+    display: block;
+    .heading {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 60px;
+        &:before,
+        &:after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            background-color: $light-grey;
+        }
+        &:before {
+            left: calc(100% + 30px);
+        }
+        &:after {
+            right: calc(100% + 30px);
+        }
+    }
+}
+
+// Custom Buttons
+
+.btn-inverted {
+    border-radius: 0;
+    border-width: 3px;
+    margin-right: 10px;
+    &.btn-lg {
+        padding: 20px 25px;
+        font-size: 22px;
+        font-weight: 500;
+        i {
+            font-size: 26px;
+            margin-right: 10px;
+        }
+    }
+    @include transition();
+
+    &:hover {
+        background: $grey;
+        color: $yellow;
+    }
+}
+
+// Header background and overlay
+
+header {
+    background: url('../images/hero_bg.png') 0 0 no-repeat;
+    background-size: cover;
+    position: relative;
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: $yellow;
+        z-index: -1;
+    }
+}
+
+// Navigation
+
+.top-navigation {
+    padding-top: 40px;
+    .navbar {
+        box-shadow: 0 2px 4px rgba(0,0,0,.22);
+    }
+}
+.navbar-nav a {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.logo {
+    padding: 0;
+    line-height: 90px;
+    margin-left: 30px;
+}
+// Hero
+.hero {
+    margin-top: 120px;
+    .hero-details {
+        padding-top: 60px;
+    }
+    ul {
+        margin: 30px 0 60px;
+        list-style: none;
+        li {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 36px;
+            span {
+                font-size: 36px;
+                margin-right: 15px;
+            }
+            span,p {
+                float: left;
+            }
+        }
+    }
+}
+
+// Feature section
+.feature-detail {
+    margin-top: 40px;
+    padding: 10px 0;
+    @include transition();
+    span {
+        display: block;
+        float: left;
+        font-size: 40px;
+        color: $light-grey;
+        width: 70px;
+        text-align: center;
+        @include transition();
+    }
+    h5,p {
+        margin-left: 80px;
+    }
+    &:hover {
+        background: lighten($yellow, 40%);
+        span {
+            color: $dark-grey
+        }
+    }
+}
+
+// Gallery
+
+.gallery {
+    background: #fafafa;
+    padding-bottom: 60px;
+    ul {
+        text-align: center;
+    }
+    li {
+        margin: 0 20px;
+        &:first-child {
+            margin-left: 0;
+            opacity: .3;
+        }
+        &:last-child {
+            margin-right: 0;
+            opacity: .3;
+        }
+    }
+}
+
+
+// Showreel
+
+.showreel {
+    background: $yellow;
+    font-size: 34px;
+    margin: 0;
+    text-transform: uppercase;
+    padding: 320px 0;
+    a {
+        font-weight: 300;
+        line-height: 62px;
+        display: inline-block;
+    }
+    p {
+        float: left;
+        font-size: 28px;
+        letter-spacing: .5em;
+    }
+    span {
+        color: #fff;
+        font-size: 62px;
+        float: left;
+        width: 70px;
+        text-align: center;
+        display: block;
+    }
+
+}
