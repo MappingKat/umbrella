@@ -6807,7 +6807,9 @@ a {
   -moz-transition: all .15s ease;
   -ms-transition: all .15s ease;
   -o-transition: all .15s ease;
-  transition: all .15s ease; }
+  transition: all .15s ease;
+  text-decoration: none;
+  display: inline-block; }
   a:hover {
     color: #282528; }
 
@@ -7096,7 +7098,10 @@ header {
 
 .contact {
   padding: 0;
-  position: relative; }
+  overflow: hidden; }
+  .contact .contact-content {
+    padding: 80px 0;
+    position: relative; }
   .contact h3 {
     font-size: 24px;
     font-weight: 500px;
@@ -7114,7 +7119,8 @@ header {
       line-height: inherit; }
   .contact .contact-image {
     position: absolute;
-    right: 0; }
+    right: 0;
+    bottom: -30%; }
 
 .social-profiles {
   list-style: none;
@@ -7124,7 +7130,7 @@ header {
     .social-profiles li:last-child {
       margin-bottom: 0; }
   .social-profiles a {
-    display: block;
+    display: inline-block;
     height: 30px;
     width: 30px;
     line-height: 30px;
@@ -7133,3 +7139,28 @@ header {
     font-size: 26px; }
     .social-profiles a:hover {
       color: #646464; }
+
+footer {
+  padding: 80px 0;
+  border-top: 5px solid #f8e514;
+  color: #646464; }
+  footer img {
+    margin-bottom: 10px; }
+  footer h4 {
+    font-size: 14px;
+    font-weight: 600;
+    height: 48px;
+    line-height: 48px;
+    margin-bottom: 15px; }
+  footer .explore-list li {
+    float: left;
+    width: 50%; }
+  footer a {
+    color: inherit;
+    text-decoration: none; }
+    footer a:hover {
+      color: #282528; }
+  footer .copyrights i {
+    color: #e73142; }
+  footer p.about-footer {
+    color: #bdbdbe; }
