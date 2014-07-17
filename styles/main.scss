@@ -519,3 +519,14 @@ footer {
     color: $light-grey;
   }
 }
+
+// Github ribbon
+.github-ribbon {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  width: 149px;
+  height: 149px;
+  display: block;
+}

@@ -7164,3 +7164,12 @@ footer {
     color: #e73142; }
   footer p.about-footer {
     color: #bdbdbe; }
+
+.github-ribbon {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  width: 149px;
+  height: 149px;
+  display: block; }
