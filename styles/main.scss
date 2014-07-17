@@ -12,6 +12,10 @@ $alternate-purple: #5f5364;
 $grey: #282528;
 $light-grey: #bdbdbe;
 $dark-grey: #282528;
+$medium-grey: #646464;
+$thin-grey: #fafafa;
+
+$default-spacing: 80px;
 
 // Mixins
 
@@ -27,22 +31,29 @@ $dark-grey: #282528;
 // Reset input placeholder
 
 ::-webkit-input-placeholder {
-    color: $grey;
-    font-size: 22px;
+    color: $light-grey;
 }
 ::-moz-placeholder {
-    color: $grey;
-    font-size: 22px;
+    color: $light-grey;
 }
 :-ms-input-placeholder {
-    color: $grey;
-    font-size: 22px;
+    color: $light-grey;
 }
 input:-moz-placeholder {
-    color: $grey;
-    font-size: 22px;
+    color: $light-grey;
 }
 
+input,
+textarea {
+    border: 0;
+    box-shadow: 0;
+    outline: none;
+    border-bottom: 1px solid $light-grey;
+    min-height: 50px;
+    height: 50px;
+    margin-bottom: 30px;
+    resize: none;
+}
 // Reset MironC style
 
 * {
@@ -65,6 +76,7 @@ body {
 
 a {
     color: $grey;
+    @include transition();
     &:hover {
         color: $dark-grey;
     }
@@ -94,19 +106,34 @@ h5 {
     font-size: 16px;
     font-weight: 700;
 }
+h6 {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5em;
+}
 // Heading
 
 .special-heading {
-    padding: 60px 0;
+    padding: $default-spacing 0;
     display: block;
+    .additional-info {
+        padding: 0 $default-spacing;
+    }
     .heading {
+        &.testimonial {
+            font-family: Georgia, serif;
+            font-size: 220px;
+            color: $light-grey;
+            line-height: 0;
+            padding-top: $default-spacing;
+        }
         position: relative;
         display: inline-block;
-        margin-bottom: 60px;
+        margin-bottom: $default-spacing;
         &:before,
         &:after {
             content: '';
-            width: 60px;
+            width: $default-spacing;
             height: 1px;
             position: absolute;
             top: 50%;
@@ -183,14 +210,16 @@ header {
     line-height: 90px;
     margin-left: 30px;
 }
+
 // Hero
+
 .hero {
-    margin-top: 120px;
+    margin-top: $default-spacing*2;
     .hero-details {
-        padding-top: 60px;
+        padding-top: $default-spacing;
     }
     ul {
-        margin: 30px 0 60px;
+        margin: $default-spacing/2 0 $default-spacing;
         list-style: none;
         li {
             font-size: 18px;
@@ -208,6 +237,7 @@ header {
 }
 
 // Feature section
+
 .feature-detail {
     margin-top: 40px;
     padding: 10px 0;
@@ -235,8 +265,8 @@ header {
 // Gallery
 
 .gallery {
-    background: #fafafa;
-    padding-bottom: 60px;
+    background: $thin-grey;
+    padding-bottom: $default-spacing;
     ul {
         text-align: center;
     }
@@ -261,7 +291,13 @@ header {
     font-size: 34px;
     margin: 0;
     text-transform: uppercase;
-    padding: 320px 0;
+    position: relative;
+    padding: $default-spacing*4 0;
+    .branded-showreel {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+    }
     a {
         font-weight: 300;
         line-height: 62px;
@@ -281,4 +317,161 @@ header {
         display: block;
     }
 
+}
+
+// About
+.about {
+    background: $thin-grey;
+    padding-bottom: $default-spacing*2;
+}
+.peeps {
+    li {
+        &:hover figcaption {
+            opacity: 1;
+        }
+    }
+    figure{
+        background: lighten($light-grey, 15%);
+        height: 286px;
+        position: relative;
+        figcaption {
+            padding: 30px;
+            background: $yellow;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            @include transition();
+            text-align: center;
+            opacity: 0;
+        }
+    }
+}
+.lower-heading {
+    margin-bottom: 0;
+    & + p {
+        color: $medium-grey;
+    }
+}
+.social-buttons {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    li {
+        background: rgba(255,255,255,.3);
+        padding: 0;
+        a {
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            font-size: 24px;
+            text-align: center;
+            color: white;
+            display: block;
+            &:hover {
+                background: rgba(255,255,255,.35)
+            }
+        }
+    }
+}
+
+// Testimonial
+
+.testimonials {
+    padding-bottom: $default-spacing*2;
+}
+.testimonial-meta {
+    padding: 0;
+}
+.image-holder {
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid $yellow;
+    background: transparent;
+}
+
+
+// Featured on
+
+.featured-in {
+    background: $yellow;
+    padding-bottom: $default-spacing*2;
+    margin: 0;
+    ul {
+        text-align: center;
+    }
+    li {
+        margin-top: $default-spacing;
+        float: left;
+        a {
+            opacity: .8;
+            height: 100px;
+            line-height: 100px;
+            padding: 0 30px;
+            display: block;
+            text-align: center;
+            @include transition();
+            border: 2px solid transparent;
+            &:hover {
+                border: 2px solid #fff;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+// Contact
+
+.contact {
+    padding: 0;
+    position: relative;
+    h3 {
+        font-size: 24px;
+        font-weight: 500px;
+        margin: 60px 0 30px;
+    }
+    .form-action a {
+        text-decoration: none;
+        font-size: 16px;
+        height: 50px;
+        line-height: 50px;
+        span {
+            display: block;
+            float: left;
+            margin-right: 20px;
+            font-size: 42px;
+            line-height: inherit;
+        }
+    }
+    .contact-image {
+        position: absolute;
+        right: 0;
+    }
+}
+.social-profiles {
+    list-style: none;
+    margin: 120px 0 0 0;
+    li {
+        margin-bottom: 20px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    a {
+        display: block;
+        height: 30px;
+        width: 30px;
+        line-height: 30px;
+        text-align: center;
+        color: $light-grey;
+        font-size: 26px;
+        &:hover {
+            color: $medium-grey;
+        }
+    }
 }
