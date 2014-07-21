@@ -82,9 +82,8 @@ a {
     @include transition();
     text-decoration: none;
     display: inline-block;
-    &.current,
     &:hover {
-        color: $dark-grey !important;
+        color: $dark-grey;
     }
 }
 
@@ -213,6 +212,9 @@ header {
 .navbar-nav a {
     text-transform: uppercase;
     font-weight: 700;
+}
+.navbar-nav > a {
+    color: $dark-grey;
 }
 .logo {
     padding: 0;
