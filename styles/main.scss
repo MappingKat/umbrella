@@ -2,6 +2,7 @@
 
 @import "../sass/bootstrap/bootstrap.scss";
 @import "../sass/fontawesome/scss/font-awesome.scss";
+
 // Default web variables
 
 $yellow: #f8e514;
@@ -16,6 +17,8 @@ $medium-grey: #646464;
 $thin-grey: #fafafa;
 
 $default-spacing: 80px;
+
+@import "owl_slider";
 
 // Mixins
 
@@ -79,8 +82,9 @@ a {
     @include transition();
     text-decoration: none;
     display: inline-block;
+    &.current,
     &:hover {
-        color: $dark-grey;
+        color: $dark-grey !important;
     }
 }
 
@@ -116,6 +120,9 @@ h6 {
 // Heading
 
 .special-heading {
+
+    opacity:0;
+    @include transition();
     padding: $default-spacing 0;
     display: block;
     .additional-info {
@@ -212,6 +219,21 @@ header {
     line-height: 90px;
     margin-left: 30px;
 }
+.fullWidth {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+// fixed position
+.sticky-wrapper {
+  width: inherit;
+}
+.stuck {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: inherit;
+}
 
 // Hero
 
@@ -272,16 +294,12 @@ header {
     ul {
         text-align: center;
     }
-    li {
+    .item {
         margin: 0 20px;
-        &:first-child {
-            margin-left: 0;
-            opacity: .3;
-        }
-        &:last-child {
-            margin-right: 0;
-            opacity: .3;
-        }
+        text-align: center;
+    }
+    .opac {
+        opacity: .3;
     }
 }
 
@@ -522,10 +540,10 @@ footer {
 
 // Github ribbon
 .github-ribbon {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
-  z-index: 3;
+  z-index: 1100;
   width: 149px;
   height: 149px;
   display: block;

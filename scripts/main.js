@@ -1,8 +1,11 @@
 $(document).ready(function(){
 
-  $('.top-navigation').singlePageNav({
-      offset: $('.top-navigation').outerHeight(),
+  $('.main-navigation').singlePageNav({
+      offset: $('.navbar-default').outerHeight() - 3,
       filter: ':not(.external)',
+      speed: 400,
+      currentClass: 'current',
+      easing: 'swing',
       updateHash: true,
       beforeStart: function() {
       },
@@ -10,61 +13,51 @@ $(document).ready(function(){
       }
   });
 
-  // Initialize jribbble
+  $('.navbar-default').waypoint('sticky', {
+    direction: 'down',
+    stuckClass: 'stuck animated bounceInDown',
+  });
 
-  /**
+  $('.special-heading').waypoint({
+    offset  : '65%',
+    handler : function() {
+      var $this = $(this);
+      $this.addClass('animated fadeIn');
 
-  <div class="dribbble-portfolio--item col-4 col-lg-4">
-      <a href="#" target="_blank">
-          <img src="images/work_1.jpg" class="img-thumbnail" alt="Work no.1">
-      </a>
-
-      <div class="details">
-        <h2><a href="#" target="_blank" class="inverted">Title</a></h2>
-        <p><em>by</em> Player</p>
-        <p class="shot-meta">
-          <i class="fa fa-eye"></i> 213 
-          <i class="fa fa-comments"></i> 122 
-          <i class="fa fa-heart"></i> 1999
-        </p>
-      </div>
-  </div>
-
-  **/
+      if($this.is('.three')){
+        setTimeout(function(){
+            $this.addClass('extraColor');
+        }, 1200);
+      }
+    }
+  });
 
 
+  // Gallery
 
-  var callback = function (listDetails) {
-    var html = '';
-    var image_url = '';
-    $.each(listDetails.shots, function (i, shot) {
-        if(shot.image_400_url){
-          image_url = shot.image_400_url;
-        }else {
-          image_url = shot.image_url;
-        }
-        html += '<div class="dribbble-portfolio--item col-4 col-lg-4 col-md-6">';
-        html += '<a href="' + shot.url + '" target="_blank">';
-        html += '<img src="' + image_url + '"';
-        html += 'alt="' + shot.title + '" class="img-thumbnail">';
-        html += '</a>';
-        html += '<div class="details">';
-        html += '<h2><a href="' + shot.url + '" target="_blank" class="inverted">' + shot.title + '</a></h2>';
-        html += '<p><em>by</em> '+ shot.player.name +'</p>';
-        html += '<p class="shot-meta">';
-        html += '<i class="fa fa-eye"></i> '+ shot.views_count +' ';
-        html += '<i class="fa fa-comments"></i> '+ shot.comments_count +' ';
-        html += '<i class="fa fa-heart"></i> '+ shot.likes_count +' ';
-        html += '</p></div></div>';
-    });
+  $(".owl-slider").owlCarousel({
 
-     $('.dribbble-portfolio').html(html);
-  };
+      autoPlay: 3000, //Set AutoPlay to 3 seconds
 
-  //$.jribbble.getShotsByList('popular', callback, {page: 1, per_page: 12});
+      items : 5,
+      itemsDesktop : [1199,5],
+      itemsDesktopSmall : [979,3],
+      itemsTablet: [700,2],
+      itemsMobile : [400, 1],
+      afterAction : afterAction
+  });
 
-  // Or fetch from user
-  // Replace 'ryanhopkins' username with yours
-  $.jribbble.getShotsByPlayerId('ryanhopkins', callback, {page: 1, per_page: 8});
+  function updateResult(element,value, visible){
+    $(element).addClass('opac');
+    for(var i=1; i < visible.length - 1; i++){
+      $(element).eq(value+i).removeClass('opac');
+    }
+    console.log(visible.length);
+  }
+
+  function afterAction(){
+    updateResult(".owl-item", this.owl.currentItem, this.owl.visibleItems);
+  }
+
 
 });
