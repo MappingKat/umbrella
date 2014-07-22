@@ -7334,6 +7334,9 @@ footer {
   .github-ribbon {
     display: none; }
 
+  .featured-in li {
+    margin-top: 10px; }
+
   .main-navigation {
     float: none;
     width: 100%;
@@ -7349,9 +7352,26 @@ footer {
     border-radius: 3px; } }
 @media (max-width: 1200px) {
   .hero-details {
-    padding-bottom: 40px; } }
+    padding-bottom: 40px; }
+
+  .hero {
+    margin-top: 0; }
+    .hero img {
+      display: none; } }
 @media (max-width: 992px) {
-  .hero img,
+  .showreel {
+    padding: 160px 0; }
+
+  .testimonials {
+    padding-bottom: 40px; }
+
+  .about,
+  .featured-in {
+    padding-bottom: 0px; }
+
+  .heading:before, .heading:after {
+    display: none; }
+
   .features img,
   .contact-image img {
     display: none; } }

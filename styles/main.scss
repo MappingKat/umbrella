@@ -555,6 +555,9 @@ footer {
     .github-ribbon {
         display: none;
     }
+    .featured-in li {
+        margin-top: 10px;
+    }
   .main-navigation {
     float: none;
     width: 100%;
@@ -568,13 +571,33 @@ footer {
   }
 }
 @media (max-width: $screen-lg) {
-  .hero-details {
-    padding-bottom: $default-spacing/2;
-  }
+    .hero-details {
+        padding-bottom: $default-spacing/2;
+    }
+    .hero {
+        margin-top: 0;
+        img {
+            display: none;
+        }
+    }
 }
 @media (max-width: $screen-md) {
-
-    .hero img,
+    .showreel {
+        padding: 160px 0;
+    }
+    .testimonials {
+        padding-bottom: 40px;
+    }
+    .about,
+    .featured-in {
+        padding-bottom: 0px;
+    }
+    .heading {
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
     .features img,
     .contact-image img {
         display: none;
