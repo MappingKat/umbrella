@@ -3,7 +3,7 @@ $(document).ready(function(){
   $('.main-navigation').singlePageNav({
       offset: $('.navbar-default').outerHeight() - 3,
       filter: ':not(.external)',
-      speed: 400,
+      speed: 1000,
       currentClass: 'current',
       easing: 'swing',
       updateHash: true,
@@ -48,11 +48,14 @@ $(document).ready(function(){
   });
 
   function updateResult(element,value, visible){
-    $(element).addClass('opac');
-    for(var i=1; i < visible.length - 1; i++){
-      $(element).eq(value+i).removeClass('opac');
+    if(visible.length > 2){
+      $(element).addClass('opac');
+      for(var i=1; i < visible.length - 1; i++){
+        $(element).eq(value+i).removeClass('opac');
+      }
+    }else {
+      $(element).removeClass('opac');
     }
-    console.log(visible.length);
   }
 
   function afterAction(){
