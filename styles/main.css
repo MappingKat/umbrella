@@ -7097,6 +7097,21 @@ header {
       .hero ul li span, .hero ul li p {
         float: left; }
 
+.iphone-carousel {
+  background: url("../images/large_iphone_slider_bg.png") center 0 no-repeat;
+  width: 332px;
+  height: 663px;
+  margin: 0 auto; }
+  .iphone-carousel .carousel-inner {
+    margin: 0 auto;
+    width: 263px; }
+    .iphone-carousel .carousel-inner img {
+      padding-top: 98px;
+      margin: 0 auto; }
+
+.feature-content {
+  padding-bottom: 60px; }
+
 .feature-detail {
   margin-top: 40px;
   padding: 10px 0;
@@ -7119,9 +7134,9 @@ header {
     transition: all .15s ease; }
   .feature-detail h5, .feature-detail p {
     margin-left: 80px; }
-  .feature-detail:hover {
+  .feature-detail.active, .feature-detail:hover {
     background: #fefbda; }
-    .feature-detail:hover span {
+    .feature-detail.active span, .feature-detail:hover span {
       color: #282528; }
 
 .gallery {
@@ -7358,7 +7373,18 @@ footer {
     margin-top: 0; }
     .hero img {
       display: none; } }
+@media (min-width: 992px) and (max-width: 1200px) {
+  .iphone-carousel {
+    width: 100%;
+    background-size: contain; }
+    .iphone-carousel .carousel-inner {
+      width: 79%; }
+      .iphone-carousel .carousel-inner img {
+        padding-top: 38%; } }
 @media (max-width: 992px) {
+  .feature-content {
+    padding-bottom: 60px; }
+
   .showreel {
     padding: 160px 0; }
 

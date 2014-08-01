@@ -264,6 +264,24 @@ header {
 
 // Feature section
 
+.iphone-carousel {
+    background: url("../images/large_iphone_slider_bg.png") center 0 no-repeat;
+    width: 332px;
+    height: 663px;
+    margin: 0 auto;
+    .carousel-inner {
+        margin: 0 auto;
+        width: 263px;
+        img {
+            padding-top: 98px;
+            margin: 0 auto;
+        }
+
+    }
+}
+.feature-content {
+    padding-bottom: 60px;
+}
 .feature-detail {
     margin-top: 40px;
     padding: 10px 0;
@@ -280,6 +298,7 @@ header {
     h5,p {
         margin-left: 80px;
     }
+    &.active,
     &:hover {
         background: lighten($yellow, 40%);
         span {
@@ -581,7 +600,22 @@ footer {
         }
     }
 }
+@media (min-width: $screen-md) and (max-width: $screen-lg) {
+    .iphone-carousel {
+        width: 100%;
+        background-size: contain;
+        .carousel-inner {
+            width: 79%;
+            img {
+                padding-top: 38%;
+            }
+        }
+    }
+}
 @media (max-width: $screen-md) {
+    .feature-content {
+        padding-bottom: 60px;
+    }
     .showreel {
         padding: 160px 0;
     }

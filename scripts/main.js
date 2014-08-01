@@ -62,5 +62,20 @@ $(document).ready(function(){
     updateResult(".owl-item", this.owl.currentItem, this.owl.visibleItems);
   }
 
+  // Iphone Slider
+
+  $('.carousel').carousel({
+    interval: 3000
+  });
+
+  $('.iphone-carousel').on('slid.bs.carousel', function () {
+    var carouselData = $(this).data('bs.carousel');
+    var currentIndex = carouselData.getActiveIndex();
+    $('.feature-detail').removeClass('active');
+    $(".feature-detail[data-slide-to='" + currentIndex + "']").addClass('active');
+  });
+
+
+
 
 });
